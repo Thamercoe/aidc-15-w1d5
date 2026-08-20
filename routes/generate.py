@@ -8,7 +8,7 @@ tok = AutoTokenizer.from_pretrained(MODEL, local_files_only=True)
 model = AutoModelForCausalLM.from_pretrained(MODEL, local_files_only=True)
 
 def handle():
-    prompt = "In one sentence, what is a data centre for?"
+    prompt = "<|im_start|>user\nIn one sentence, what is a data centre for?<|im_end|>\n<|im_start|>assistant\n"
     ids = tok(prompt, return_tensors="pt")
     
     t0 = time.perf_counter()
